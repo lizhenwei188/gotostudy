@@ -9,7 +9,6 @@
     </parent>
     
     <artifactId>study-com</artifactId>
-
     <name>study-com</name>
     <description>公共模块</description>
 
