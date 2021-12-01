@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.gotostudy</groupId>
+    <artifactId>gotostudy</artifactId>
+    <version>v1.0</version>
+
+    <name>study</name>
+    <description>模块聚合</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>study-com</module>
+        <module>study-gat</module>
+        <module>study-cms</module>
+        <module>study-msm</module>
+        <module>study-ord</module>
+        <module>study-oss</module>
+        <module>study-sta</module>
+        <module>study-usr</module>
+        <module>study-vod</module>
+        <module>study-edu</module>
+    </modules>
+
+
+</project>
