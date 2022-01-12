@@ -7,6 +7,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @SpringBootApplication
+// 扫描引入其他模块的配置信息
 @ComponentScan(basePackages = {"com.gotostudy"})
 public class StudyEduApplication {
 

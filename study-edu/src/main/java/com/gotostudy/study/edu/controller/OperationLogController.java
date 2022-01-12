@@ -1,7 +1,7 @@
 package com.gotostudy.study.edu.controller;
 
 import com.gotostudy.study.com.utils.mybatisplus.PageUtils;
-import com.gotostudy.study.com.utils.mybatisplus.R;
+import com.gotostudy.study.com.utils.ResultUtil.R;
 import com.gotostudy.study.edu.entity.OperationLogEntity;
 import com.gotostudy.study.edu.service.OperationLogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class OperationLogController {
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = operationLogService.queryPage(params);
 
-        return R.ok().put("page", page);
+        return R.ok().data("page", page);
     }
 
 
@@ -42,7 +42,7 @@ public class OperationLogController {
     public R info(@PathVariable("id") Integer id){
 		OperationLogEntity operationLog = operationLogService.getById(id);
 
-        return R.ok().put("operationLog", operationLog);
+        return R.ok().data("operationLog", operationLog);
     }
 
     /**
