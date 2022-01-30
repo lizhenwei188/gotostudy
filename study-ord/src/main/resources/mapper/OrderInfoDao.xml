@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gotostudy.study.ord.dao.OrderInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.gotostudy.study.ord.entity.OrderInfoEntity" id="orderInfoMap">
+        <result property="id" column="id"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="courseId" column="course_id"/>
+        <result property="courseTitle" column="course_title"/>
+        <result property="courseCover" column="course_cover"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="memberId" column="member_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="mobile" column="mobile"/>
+        <result property="email" column="email"/>
+        <result property="totalFee" column="total_fee"/>
+        <result property="payType" column="pay_type"/>
+        <result property="status" column="status"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+</mapper>

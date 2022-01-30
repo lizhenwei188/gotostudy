@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: study-gat
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.gotostudy:8848
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+
+      routes:
+        - id: study-cms
+          uri: lb://study-cms
+          predicates:
+            - Path=/cms/**
+        - id: study-edu
+          uri: lb://study-edu
+          predicates:
+            - Path=/edu/**
+        - id: study-msm
+          uri: lb://study-msm
+          predicates:
+            - Path=/msm/**
+        - id: study-ord
+          uri: lb://study-ord
+          predicates:
+            - Path=/ord/**
+        - id: study-oss
+          uri: lb://study-oss
+          predicates:
+            - Path=/oss/**
+        - id: study-sta
+          uri: lb://study-sta
+          predicates:
+            - Path=/sta/**
+        - id: study-usr
+          uri: lb://study-usr
+          predicates:
+            - Path=/usr/**
+        - id: study-vod
+          uri: lb://study-vod
+          predicates:
+            - Path=/vod/**
+
+

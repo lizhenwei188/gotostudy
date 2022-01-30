@@ -1,0 +1,33 @@
+server:
+  port: 8006
+
+spring:
+  application:
+    name: study-oss
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.158.130:30579
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+
+logging:
+  config: classpath:logback-spring.xml
+
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-hangzhou.aliyuncs.com
+      keyid: LTAI5tA3AgDkUfGSu1f6B67e
+      keysecret: ArUuw0uSM6ZRhY6kTpktHBuZYa0zEA
+      bucketname: gotostudy
+
+#开启熔断机制
+feign:
+  hystrix:
+    enabled: true

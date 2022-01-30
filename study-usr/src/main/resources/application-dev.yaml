@@ -1,0 +1,51 @@
+server:
+  port: 8160
+
+spring:
+  application:
+    name: study-usr
+
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.158.130:31252/gotostudy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: password
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.158.130:30579
+
+  redis:
+    host: 192.168.158.130
+    port: 31094
+    database: 0
+    timeout: 1800000
+
+logging:
+  config: classpath:logback-spring.xml
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/*.xml
+
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+#开启熔断机制
+feign:
+  hystrix:
+    enabled: true
+
+# 微信登录信息
+wx:
+  open:
+    appId: wxed9954c01bb89b47
+    appSecret: a7482517235173ddb4083788de60b90e
+#    http://guli.shop/api/ucenter/wx/callback
+    redirectUrl: http://localhost:8160/api/ucenter/wx/callback

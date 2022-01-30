@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gotostudy.study.edu.dao.VideoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.gotostudy.study.edu.entity.VideoEntity" id="videoMap">
+        <result property="id" column="id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="chapterId" column="chapter_id"/>
+        <result property="title" column="title"/>
+        <result property="videoSourceId" column="video_source_id"/>
+        <result property="videoOriginalName" column="video_original_name"/>
+        <result property="sort" column="sort"/>
+        <result property="playCount" column="play_count"/>
+        <result property="isFree" column="is_free"/>
+        <result property="duration" column="duration"/>
+        <result property="status" column="status"/>
+        <result property="size" column="size"/>
+        <result property="version" column="version"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+</mapper>

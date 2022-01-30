@@ -1,0 +1,50 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: study-cms
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.158.130:31252/gotostudy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: password
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.158.130:30579
+
+  redis:
+    host: 192.168.158.130
+    port: 31094
+    database: 0
+    timeout: 1800000
+
+#    lettuce:
+#      pool:
+#        max-active: 20
+#        max-wait: -1
+#        max-idle: 5
+#        min-idle: 0
+
+logging:
+  config: classpath:logback-spring.xml
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/*.xml
+
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted # \u5168\u5C40\u903B\u8F91\u5220\u9664\u7684\u5B9E\u4F53\u5B57\u6BB5\u540D(since 3.3.0,\u914D\u7F6E\u540E\u53EF\u4EE5\u5FFD\u7565\u4E0D\u914D\u7F6E\u6B65\u9AA42)
+      logic-delete-value: 1 # \u903B\u8F91\u5DF2\u5220\u9664\u503C(\u9ED8\u8BA4\u4E3A 1)
+      logic-not-delete-value: 0 # \u903B\u8F91\u672A\u5220\u9664\u503C(\u9ED8\u8BA4\u4E3A 0)
+
+#\u5F00\u542F\u7194\u65AD\u673A\u5236
+feign:
+  hystrix:
+    enabled: true
+

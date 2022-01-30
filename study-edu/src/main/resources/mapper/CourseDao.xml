@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gotostudy.study.edu.dao.CourseDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.gotostudy.study.edu.entity.CourseEntity" id="courseMap">
+        <result property="id" column="id"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="subjectParentId" column="subject_parent_id"/>
+        <result property="title" column="title"/>
+        <result property="price" column="price"/>
+        <result property="lessonNum" column="lesson_num"/>
+        <result property="cover" column="cover"/>
+        <result property="buyCount" column="buy_count"/>
+        <result property="viewCount" column="view_count"/>
+        <result property="version" column="version"/>
+        <result property="status" column="status"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+    <select id="getCoursePublishInfo" resultType="com.gotostudy.study.edu.vo.CoursePublishVo">
+        select ec.id,ec.price,et.name teacherName,
+			ec.title,es1.title subjectLevelOne,es2.title subjectLevelTwo,
+                ecd.description,ec.lesson_num lessonNum,ec.cover
+                    from course ec
+                        LEFT JOIN course_description ecd on ec.id=ecd.id
+                        LEFT JOIN teacher et on ec.teacher_id=et.id
+                        LEFT JOIN subject es1 on ec.subject_parent_id=es1.id
+                        LEFT JOIN subject es2 on ec.subject_id=es2.id
+                        where ec.id=#{courseId}
+    </select>
+    <select id="getAllInfoById" resultType="com.gotostudy.study.edu.vo.CourseInfoVo">
+
+select vm.* ,sub.title subjectParentName from (
+
+select co.* , te.name teacherName, te.career teacherCareer , te.avatar teacherAvatar ,su.title subjectName,cd.description from course co
+                                                                        left join teacher te
+															           on co.teacher_id = te.id
+																	   left join subject su
+																		on co.subject_id = su.id
+																		left join course_description cd
+																		on co.id = cd.id
+
+) vm left	join subject sub
+		on vm.subject_parent_id = sub.id
+
+		where vm.id = #{id}
+
+    </select>
+
+
+</mapper>

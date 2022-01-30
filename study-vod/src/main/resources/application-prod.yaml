@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: study-vod
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.gotostudy:8848
+
+  servlet:
+    multipart:
+      max-file-size: 10240MB
+      max-request-size: 10240MB
+
+
+logging:
+  config: classpath:logback-spring.xml
+
+aliyun:
+  vod:
+    file:
+      keyid: LTAI5tA3AgDkUfGSu1f6B67e
+      keysecret: ArUuw0uSM6ZRhY6kTpktHBuZYa0zEA
+
+#开启熔断机制
+feign:
+  hystrix:
+    enabled: true
