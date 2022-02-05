@@ -43,11 +43,20 @@
             <version>${aliyun-java-sdk-vod.version}</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.aliyun</groupId>-->
+<!--            <artifactId>aliyun-sdk-vod-upload</artifactId>-->
+<!--            <version>${aliyun-sdk-vod-upload.version}</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-sdk-vod-upload</artifactId>
             <version>${aliyun-sdk-vod-upload.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/libs/aliyun-java-vod-upload-1.4.14.jar</systemPath>
         </dependency>
+
 
         <!-- 阿里云oss依赖 -->
         <dependency>
@@ -59,12 +68,17 @@
     </dependencies>
 
     <build>
+<!--        <finalName>demo</finalName>-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 </project>

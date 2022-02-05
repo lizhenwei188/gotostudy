@@ -2,9 +2,7 @@ package com.gotostudy.study.vod.service.impl;
 
 import com.aliyun.vod.upload.impl.UploadVideoImpl;
 import com.aliyun.vod.upload.req.UploadStreamRequest;
-import com.aliyun.vod.upload.req.UploadVideoRequest;
 import com.aliyun.vod.upload.resp.UploadStreamResponse;
-import com.aliyun.vod.upload.resp.UploadVideoResponse;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.vod.model.v20170321.DeleteVideoRequest;
