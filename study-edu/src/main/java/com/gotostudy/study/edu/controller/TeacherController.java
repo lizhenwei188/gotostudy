@@ -1,12 +1,11 @@
 package com.gotostudy.study.edu.controller;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.gotostudy.study.com.utils.mybatisplus.PageUtils;
-import com.gotostudy.study.com.utils.ResultUtil.R;
+import com.gotostudy.study.com.utils.resultutil.R;
 import com.gotostudy.study.edu.entity.TeacherEntity;
 import com.gotostudy.study.edu.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;

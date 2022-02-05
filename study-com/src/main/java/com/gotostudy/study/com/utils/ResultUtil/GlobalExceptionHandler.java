@@ -1,7 +1,7 @@
 package com.gotostudy.study.com.utils.resultutil;
 
 import lombok.extern.slf4j.Slf4j;
-import com.gotostudy.study.com.utils.ResultUtil.R;
+import com.gotostudy.study.com.utils.resultutil.R;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
     @ResponseBody//返回数据
     public R error(NullPointerException e) {
         e.printStackTrace();
-        return com.gotostudy.study.com.utils.ResultUtil.R.error().message("出现空指针异常了！！！");
+        return R.error().message("出现空指针异常了！！！");
     }
 
     //自定义异常类
@@ -38,6 +38,6 @@ public class GlobalExceptionHandler {
         e.printStackTrace();
         // 错误信息会写到日志文件中来
         log.error(e.getMessage());
-        return com.gotostudy.study.com.utils.ResultUtil.R.error().code(e.getCode()).message(e.getMsg());
+        return R.error().code(e.getCode()).message(e.getMsg());
     }
 }

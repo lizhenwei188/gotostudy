@@ -1,7 +1,7 @@
 package com.gotostudy.study.edu.controller;
 
 import com.gotostudy.study.com.utils.mybatisplus.PageUtils;
-import com.gotostudy.study.com.utils.ResultUtil.R;
+import com.gotostudy.study.com.utils.resultutil.R;
 import com.gotostudy.study.edu.entity.OperationLogEntity;
 import com.gotostudy.study.edu.service.OperationLogService;
 import org.springframework.beans.factory.annotation.Autowired;

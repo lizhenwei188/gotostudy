@@ -8,18 +8,18 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.158.130:31252/gotostudy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/gotostudy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
     username: root
-    password: password
+    password: root
 
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.158.130:30579
+        server-addr: 192.168.158.130:31414
 
   redis:
     host: 192.168.158.130
-    port: 31094
+    port: 32200
     database: 0
     timeout: 1800000
 

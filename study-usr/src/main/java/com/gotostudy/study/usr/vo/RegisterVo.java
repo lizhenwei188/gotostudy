@@ -5,10 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @program: guli_parent
  * @description: 用于封装注册对象的信息实体类，包含验证码
  * @author: 53Hertz
- * @create: 2021-03-22 10:22
  **/
 
 @Data
@@ -21,7 +19,7 @@ public class RegisterVo {
     @ApiModelProperty(value = "qq邮箱")
     private String email;
 
-    @ApiModelProperty(value = "qq邮箱")
+    @ApiModelProperty(value = "手机号码")
     private String mobile;
 
     @ApiModelProperty(value = "密码")

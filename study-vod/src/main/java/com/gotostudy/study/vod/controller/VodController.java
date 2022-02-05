@@ -1,9 +1,12 @@
 package com.gotostudy.study.vod.controller;
 
 
+import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthRequest;
+import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthResponse;
 import com.gotostudy.study.com.utils.resultutil.GotostudyException;
+import com.gotostudy.study.com.utils.resultutil.R;
 import com.gotostudy.study.vod.service.VodService;
-import com.gotostudy.study.com.utils.ResultUtil.R;
 import com.gotostudy.study.vod.utils.ConstantsVodUtils;
 import com.gotostudy.study.vod.utils.InitVodClient;
 import io.swagger.annotations.Api;

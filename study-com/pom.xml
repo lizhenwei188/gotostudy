@@ -21,10 +21,10 @@
         <mysql.version>8.0.17</mysql.version>
         <swagger.version>2.9.2</swagger.version>
         <httpcore.version>4.4.14</httpcore.version>
-        <commons-pool2.version>2.6.0</commons-pool2.version>
         <easyexcel.version>2.2.6</easyexcel.version>
         <swagger-ui.version>2.9.2</swagger-ui.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
+        <commons-pool2.version>2.6.0</commons-pool2.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
         <tomcat-embed-core.version>9.0.55</tomcat-embed-core.version>
         <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
@@ -97,10 +97,10 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 <!--        &lt;!&ndash;        服务配置中心&ndash;&gt;-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+<!--        </dependency>-->
 <!--                &lt;!&ndash;服务调用&ndash;&gt;-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

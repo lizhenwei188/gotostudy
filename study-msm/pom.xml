@@ -17,6 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <study-com.version>v1.0</study-com.version>
+        <tencentcloud-sdk-java.version>3.1.270</tencentcloud-sdk-java.version>
     </properties>
 
     <dependencies>
@@ -43,9 +44,10 @@
 
         <!-- 腾讯云sdk 发送手机短信验证码-->
         <dependency>
-            <groupId>com.github.qcloudsms</groupId>
-            <artifactId>qcloudsms</artifactId>
-            <version>1.0.6</version>
+            <groupId>com.tencentcloudapi</groupId>
+            <artifactId>tencentcloud-sdk-java</artifactId>
+            <!-- 注：这里只是示例版本号（可直接使用），可获取并替换为 最新的版本号，注意不要使用4.0.x版本（非最新版本） -->
+            <version>${tencentcloud-sdk-java.version}</version>
         </dependency>
     </dependencies>
 

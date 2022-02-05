@@ -17,9 +17,6 @@ import com.gotostudy.study.ord.service.OrderInfoService;
 @Service("orderInfoService")
 public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoDao, OrderInfoEntity> implements OrderInfoService {
 
-
-
-
     @Autowired
     private EduFeign eduFeign;
 

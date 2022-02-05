@@ -8,14 +8,15 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.158.130:31252/gotostudy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/gotostudy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
     username: root
-    password: password
+    password: root
 
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.158.130:30579
+        server-addr: 192.168.158.130:31414
+
 
 logging:
   config: classpath:logback-spring.xml

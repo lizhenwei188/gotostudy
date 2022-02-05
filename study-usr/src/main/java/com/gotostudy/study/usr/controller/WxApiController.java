@@ -110,6 +110,7 @@ public class WxApiController {
             //可以将其转换为map形式的数据，然后根据key进行取值操作
             //可以使用json的转化工具gson进行转化
             Gson gson = new Gson();
+
             HashMap mapAccessToken = gson.fromJson(accessTokenInfo,HashMap.class);
 
             String openid = (String) mapAccessToken.get("openid");

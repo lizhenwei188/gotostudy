@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.gotostudy.study.com.utils.mybatisplus.PageUtils;
 import com.gotostudy.study.edu.entity.TeacherEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,5 +18,7 @@ import java.util.Map;
 public interface TeacherService extends IService<TeacherEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    List<TeacherEntity> queryHotTeacher();
 }
 

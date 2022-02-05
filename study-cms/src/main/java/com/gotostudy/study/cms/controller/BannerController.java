@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.gotostudy.study.com.utils.resultutil.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import com.gotostudy.study.cms.entity.BannerEntity;
 import com.gotostudy.study.cms.service.BannerService;
 import com.gotostudy.study.com.utils.mybatisplus.PageUtils;
-import com.gotostudy.study.com.utils.resultutil.R;
 
 
 

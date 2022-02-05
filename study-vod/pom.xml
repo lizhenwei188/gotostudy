@@ -15,8 +15,13 @@
     <description>视频模块</description>
 
     <properties>
+        <oss.version>3.1.0</oss.version>
         <java.version>1.8</java.version>
         <study-com.version>v1.0</study-com.version>
+        <aliyun-java-sdk-core.version>4.5.1</aliyun-java-sdk-core.version>
+        <aliyun-java-sdk-vod.version>2.15.11</aliyun-java-sdk-vod.version>
+        <aliyun-java-vod-upload.version>1.4.14</aliyun-java-vod-upload.version>
+        <aliyun-sdk-vod-upload.version>1.4.13</aliyun-sdk-vod-upload.version>
     </properties>
 
     <dependencies>
@@ -25,6 +30,32 @@
             <artifactId>study-com</artifactId>
             <version>${study-com.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>${aliyun-java-sdk-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-vod</artifactId>
+            <version>${aliyun-java-sdk-vod.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-sdk-vod-upload</artifactId>
+            <version>${aliyun-sdk-vod-upload.version}</version>
+        </dependency>
+
+        <!-- 阿里云oss依赖 -->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>${oss.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -32,14 +63,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-<!--                <configuration>-->
-<!--                    <excludes>-->
-<!--                        <exclude>-->
-<!--                            <groupId>org.projectlombok</groupId>-->
-<!--                            <artifactId>lombok</artifactId>-->
-<!--                        </exclude>-->
-<!--                    </excludes>-->
-<!--                </configuration>-->
             </plugin>
         </plugins>
     </build>

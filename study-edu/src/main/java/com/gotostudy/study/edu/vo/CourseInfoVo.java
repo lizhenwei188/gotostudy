@@ -8,10 +8,8 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 /**
- * @program: guli_parent
  * @description: 课程信息的封装类
  * @author: 53Hertz
- * @create: 2021-03-13 22:01
  **/
 
 //封装从前端传过来的表单，因为entity里的实体类封装的信息不全，课程描述没有封装进去

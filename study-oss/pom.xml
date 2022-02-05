@@ -16,6 +16,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <oss.version>3.1.0</oss.version>
+        <joda-time.version>2.10.1</joda-time.version>
         <study-com.version>v1.0</study-com.version>
     </properties>
 
@@ -24,6 +26,19 @@
             <groupId>com.gotostudy</groupId>
             <artifactId>study-com</artifactId>
             <version>${study-com.version}</version>
+        </dependency>
+
+        <!-- 阿里云oss依赖 -->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>${oss.version}</version>
+        </dependency>
+
+        <!-- 日期工具栏依赖 -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
         </dependency>
     </dependencies>
 

@@ -9,7 +9,10 @@ import com.gotostudy.study.edu.dao.TeacherDao;
 import com.gotostudy.study.edu.entity.TeacherEntity;
 import com.gotostudy.study.edu.service.TeacherService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 
 
@@ -45,6 +48,16 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherDao, TeacherEntity> i
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    @Cacheable(value = "teacher", key = "'selectHotTeacher'")
+    public List<TeacherEntity> queryHotTeacher() {
+        //查询前4条热门名师
+        QueryWrapper<TeacherEntity> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("id");
+        wrapper.last("limit 4");
+        return baseMapper.selectList(wrapper);
     }
 
 }

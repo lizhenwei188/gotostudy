@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package com.gotostudy.study.com.utils.ResultUtil;
+package com.gotostudy.study.com.utils.resultutil;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -39,7 +39,7 @@ public class R {
 		R r = new R();//自己可以在本类中new 不能在其他类中new
 		r.setSuccess(true);
 		r.setMessage("成功了哈哈哈哈哈啊哈哈哈哈哈哈");
-		r.setCode(ResultCode.SUCCESS);
+		r.setCode(com.gotostudy.study.com.utils.ResultUtil.ResultCode.SUCCESS);
 		return r;
 	}
 
@@ -48,7 +48,7 @@ public class R {
 		R r = new R();//自己可以在本类中new 不能在其他类中new
 		r.setSuccess(false);
 		r.setMessage("失败了呜呜呜呜呜呜呜呜呜呜呜呜");
-		r.setCode(ResultCode.ERROR);
+		r.setCode(com.gotostudy.study.com.utils.ResultUtil.ResultCode.ERROR);
 		return r;
 	}
 

@@ -22,7 +22,7 @@ public class BannerServiceImpl extends ServiceImpl<BannerDao, BannerEntity> impl
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<BannerEntity> page = this.page(
                 new Query<BannerEntity>().getPage(params),
-                new QueryWrapper<BannerEntity>()
+                new QueryWrapper<>()
         );
 
         return new PageUtils(page);
