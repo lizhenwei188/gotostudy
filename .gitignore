@@ -20,7 +20,6 @@
 *.rar
 .idea
 .logs
-**/test/**
 **/target/**
 **/*.iml
 **/*.log

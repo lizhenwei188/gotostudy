@@ -1,4 +1,4 @@
-package com.gotostudy.study.com.utils;
+package com.gotostudy.study.com.utils.config;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;

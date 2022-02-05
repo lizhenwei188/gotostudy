@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: study-vod
-          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$APP_NAME:$TAG_NAME
+          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:latest
           ports:
             - name: tcp-8080
               containerPort: 8080
@@ -41,7 +41,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: gotostudy-nginx
+  name: study-vod
   namespace: gotostudy
   labels:
     app: study-vod
@@ -51,7 +51,7 @@ spec:
       protocol: TCP
       port: 8080
       targetPort: 8080
-      nodePort: 8009
+      nodePort: 31009
   selector:
     app: study-vod
   type: NodePort

@@ -1,23 +1,23 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: study-msm
+  name: study-sta
   namespace: gotostudy
   labels:
-    app: study-msm
+    app: study-sta
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: study-msm
+      app: study-sta
   template:
     metadata:
       labels:
-        app: study-msm
+        app: study-sta
     spec:
       containers:
-        - name: study-msm
-          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$APP_NAME:$TAG_NAME
+        - name: study-sta
+          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:latest
           ports:
             - name: tcp-8080
               containerPort: 8080
@@ -41,19 +41,19 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: gotostudy-nginx
+  name: study-sta
   namespace: gotostudy
   labels:
-    app: study-msm
+    app: study-sta
 spec:
   ports:
     - name: http-80
       protocol: TCP
       port: 8080
       targetPort: 8080
-      nodePort: 8004
+      nodePort: 31007
   selector:
-    app: study-msm
+    app: study-sta
   type: NodePort
   sessionAffinity: None
 

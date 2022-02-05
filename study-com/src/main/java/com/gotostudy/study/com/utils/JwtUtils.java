@@ -1,6 +1,5 @@
 package com.gotostudy.study.com.utils;
 
-import com.gotostudy.study.com.utils.resultutil.R;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;

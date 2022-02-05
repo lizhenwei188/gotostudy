@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: study-cms
-          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$APP_NAME:$TAG_NAME
+          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:latest
           ports:
             - name: tcp-8080
               containerPort: 8080
@@ -41,7 +41,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: gotostudy-nginx
+  name: study-cms
   namespace: gotostudy
   labels:
     app: study-cms
@@ -51,7 +51,7 @@ spec:
       protocol: TCP
       port: 8080
       targetPort: 8080
-      nodePort: 8001
+      nodePort: 31001
   selector:
     app: study-cms
   type: NodePort
