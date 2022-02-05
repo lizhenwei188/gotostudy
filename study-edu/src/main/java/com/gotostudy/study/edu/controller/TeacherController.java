@@ -1,21 +1,16 @@
 package com.gotostudy.study.edu.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.gotostudy.study.com.utils.mybatisplus.PageUtils;
 import com.gotostudy.study.com.utils.resultutil.R;
 import com.gotostudy.study.edu.entity.TeacherEntity;
 import com.gotostudy.study.edu.service.TeacherService;
+import com.gotostudy.study.edu.vo.TeacherQuery;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -34,12 +29,20 @@ public class TeacherController {
     /**
      * 分页检索列表
      */
-    @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = teacherService.queryPage(params);
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("totalCount",page.getTotalCount());
-        map.put("list",page.getList());
+    @PostMapping("/list/{page}/{limit}")
+    public R list(@PathVariable(value = "page") Integer page,
+                  @PathVariable(value = "limit") Integer limit,
+                  @RequestBody(required = false) TeacherQuery teacherQuery) {
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("page", page);
+        map.put("limit", limit);
+        PageUtils pages = teacherService.queryPage(map, teacherQuery);
+        map.clear();
+
+        map.put("totalCount",pages.getTotalCount());
+        map.put("list",pages.getList());
+
         return R.ok().data(map);
     }
 

@@ -44,7 +44,7 @@ spring:
         - id: study-usr
           uri: lb://study-usr
           predicates:
-            - Path=/usr/**
+            - Path=/usr/**,/api/**
         - id: study-vod
           uri: lb://study-vod
           predicates:

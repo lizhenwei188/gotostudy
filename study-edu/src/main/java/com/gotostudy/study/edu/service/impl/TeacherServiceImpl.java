@@ -8,10 +8,12 @@ import com.gotostudy.study.com.utils.mybatisplus.Query;
 import com.gotostudy.study.edu.dao.TeacherDao;
 import com.gotostudy.study.edu.entity.TeacherEntity;
 import com.gotostudy.study.edu.service.TeacherService;
+import com.gotostudy.study.edu.vo.TeacherQuery;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,29 +23,33 @@ import java.util.Map;
 public class TeacherServiceImpl extends ServiceImpl<TeacherDao, TeacherEntity> implements TeacherService {
 
     @Override
-    public PageUtils queryPage(Map<String, Object> params) {
+    public PageUtils queryPage(Map<String, Object> map, TeacherQuery teacherQuery) {
         QueryWrapper<TeacherEntity> wrapper = new QueryWrapper<>();
 
-        String name = (String) params.get("name");
-        String level = (String) params.get("level");
-        String begin = (String) params.get("begin");
-        String end = (String) params.get("end");
+        if (teacherQuery != null) {
 
-        if (StringUtils.isNotEmpty(name)) {
-            wrapper.like("name",name);
-        }
-        if (StringUtils.isNotEmpty(level)) {
-            wrapper.eq("level",level);
-        }
-        if (StringUtils.isNotEmpty(begin)) {
-            wrapper.ge("create_time",begin);
-        }
-        if (StringUtils.isNotEmpty(end)) {
-            wrapper.le("update_time",begin);
+            String name = teacherQuery.getName();
+            Date beginTime = teacherQuery.getBeginTime();
+            Date endTime = teacherQuery.getEndTime();
+            Integer level = teacherQuery.getLevel();
+
+
+            if (StringUtils.isNotEmpty(name)) {
+                wrapper.like("name",name);
+            }
+            if (level != null) {
+                wrapper.eq("level",level);
+            }
+            if (beginTime != null) {
+                wrapper.ge("create_time",beginTime);
+            }
+            if (endTime != null) {
+                wrapper.le("update_time",endTime);
+            }
         }
 
         IPage<TeacherEntity> page = this.page(
-                new Query<TeacherEntity>().getPage(params),
+                new Query<TeacherEntity>().getPage(map),
                 wrapper
         );
 

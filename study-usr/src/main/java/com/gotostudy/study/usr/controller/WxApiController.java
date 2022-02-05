@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -149,6 +150,7 @@ public class WxApiController {
             //使用jwt将ucenterMember中的信息转换为token字符串，通过路径传递到前端页面进行显示，
             //解决跨域的问题，如果存到cookie中，不能进行跨域，上面那个用邮箱登录的就不可以跨域登录
             String jwtToken = JwtUtils.getJwtToken(member.getId(), member.getNickname());
+            // TODO: 2022/2/5 前端地址栏出现token值影响页面跳转
             return "redirect:http://localhost:3000?token=" + jwtToken;
         } catch (Exception e) {
             throw new GotostudyException(20001, "登录失败");
