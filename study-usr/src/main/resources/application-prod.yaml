@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: study-sta
+    name: study-usr
 
 
   datasource:
