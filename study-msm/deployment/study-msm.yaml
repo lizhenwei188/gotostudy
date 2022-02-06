@@ -19,8 +19,8 @@ spec:
         - name: study-msm
           image: $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:latest
           ports:
-            - name: tcp-8080
-              containerPort: 8080
+            - name: tcp-8160
+              containerPort: 8160
               protocol: TCP
           resources: {}
           terminationMessagePath: /dev/termination-log
@@ -49,8 +49,8 @@ spec:
   ports:
     - name: http-80
       protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 8160
+      targetPort: 8160
       nodePort: 31004
   selector:
     app: study-msm
