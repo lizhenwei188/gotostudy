@@ -42,7 +42,7 @@ pipeline {
                 container ('maven') {
                   withCredentials([string(credentialsId: "$SONAR_CREDENTIAL_ID", variable: 'SONAR_TOKEN')]) {
                     withSonarQubeEnv('sonar') {
-                     sh "mvn sonar:sonar  -gs `pwd`/settings.xml -Dsonar.branch=$BRANCH_NAME -Dsonar.login=$SONAR_TOKEN"
+                     sh "mvn sonar:sonar  -gs `pwd`/settings.xml -Dsonar.branch.name=$BRANCH_NAME -Dsonar.login=$SONAR_TOKEN"
                     }
                   }
                   timeout(time: 1, unit: 'HOURS') {
