@@ -19,7 +19,7 @@ pipeline {
           REGISTRY = 'docker.io'
           GITHUB_ACCOUNT = '53Hertzl'
           GITEE_ACCOUNT = 'LiZhenwei188'
-          DOCKERHUB_NAMESPACE = 'gotostudy'
+          DOCKERHUB_NAMESPACE = '53hertz'
           SONAR_CREDENTIAL_ID= 'sonar-token'
           BRANCH_NAME = 'master'
       }
