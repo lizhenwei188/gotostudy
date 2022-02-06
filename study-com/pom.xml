@@ -30,7 +30,7 @@
         <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
-<!--    其他项目的公共依赖-->
+    <!--    其他项目的公共依赖-->
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -84,24 +84,24 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
-<!--        &lt;!&ndash;mysql&ndash;&gt;-->
+        <!--        &lt;!&ndash;mysql&ndash;&gt;-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
 
-<!--        服务注册-->
+        <!--        服务注册-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-<!--        &lt;!&ndash;        服务配置中心&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
-<!--        </dependency>-->
-<!--                &lt;!&ndash;服务调用&ndash;&gt;-->
+        <!--        &lt;!&ndash;        服务配置中心&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+        <!--        </dependency>-->
+        <!--                &lt;!&ndash;服务调用&ndash;&gt;-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -112,13 +112,13 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-<!--&lt;!&ndash;        HttpServletRequest的相关依赖&ndash;&gt;-->
+        <!--&lt;!&ndash;        HttpServletRequest的相关依赖&ndash;&gt;-->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
             <version>${tomcat-embed-core.version}</version>
         </dependency>
-<!--        utils包中用到的依赖-->
+        <!--        utils包中用到的依赖-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
@@ -138,6 +138,22 @@
             <version>${jwt.version}</version>
         </dependency>
     </dependencies>
+
+
+<!--    排除父工程中的maven插件防止此处没有启动类报错，或者把当前项目的父工程改为springboot-->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 
     <dependencyManagement>
