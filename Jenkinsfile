@@ -14,8 +14,11 @@ pipeline {
       environment {
           DOCKER_CREDENTIAL_ID = 'dockerhub-id'
           GITHUB_CREDENTIAL_ID = 'github-id'
+          GITEE_CREDENTIAL_ID = 'gitee-id'
           KUBECONFIG_CREDENTIAL_ID = 'gotostudy-kubeconfig'
           REGISTRY = 'docker.io'
+          GITHUB_ACCOUNT = '53Hertzl'
+          GITEE_ACCOUNT = 'LiZhenwei188'
           DOCKERHUB_NAMESPACE = 'gotostudy'
           SONAR_CREDENTIAL_ID= 'sonar-token'
           BRANCH_NAME = 'main'
@@ -25,7 +28,7 @@ pipeline {
 
             stage('拉取代码') {
               steps {
-                git(credentialsId: 'github-id', url: 'https://github.com.cnpmjs.org/53Hertzl/gotostudy.git', branch: 'main', changelog: true, poll: false)
+                git(credentialsId: 'gitee-id', url: 'https://gitee.com/lizhenwei188/gotostudy.git', branch: 'main', changelog: true, poll: false)
                 container ('maven') {
                   sh "mvn clean install -Dmaven.test.skip=true -gs `pwd`/settings.xml"
                 }
@@ -73,7 +76,7 @@ pipeline {
               }
             }
 
-            stage('发布版本到github并推送镜像到dockerhub'){
+            stage('发布版本到gitee并推送镜像到dockerhub'){
               when{
                 expression{
                   return params.PROJECT_VERSION =~ /v.*/
@@ -82,11 +85,11 @@ pipeline {
               steps {
                 container ('maven') {
                   input(id: "publish-$PROJECT_VERSION", message: '是否发布当前镜像版本?')
-                    withCredentials([usernamePassword(credentialsId: "$GITHUB_CREDENTIAL_ID", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    withCredentials([usernamePassword(credentialsId: "$GITEE_CREDENTIAL_ID", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                       sh 'git config --global user.email "lizhenwei188@foxmail.com" '
                       sh 'git config --global user.name "lizhenwei" '
                       sh 'git tag -a $PROJECT_VERSION -m "$PROJECT_VERSION" '
-                      sh 'git push http://$GIT_USERNAME:$GIT_PASSWORD@github.com/$GITHUB_ACCOUNT/gotostudy.git --tags --ipv4'
+                      sh 'git push http://$GIT_USERNAME:$GIT_PASSWORD@gitee.com/$GITEE_ACCOUNT/gotostudy.git --tags --ipv4'
                     }
                   sh 'docker tag  $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:$PROJECT_VERSION '
                   sh 'docker push  $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:$PROJECT_VERSION '
