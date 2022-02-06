@@ -21,14 +21,14 @@ pipeline {
           GITEE_ACCOUNT = 'LiZhenwei188'
           DOCKERHUB_NAMESPACE = 'gotostudy'
           SONAR_CREDENTIAL_ID= 'sonar-token'
-          BRANCH_NAME = 'main'
+          BRANCH_NAME = 'master'
       }
 
       stages {
 
             stage('拉取代码') {
               steps {
-                git(credentialsId: 'gitee-id', url: 'https://gitee.com/lizhenwei188/gotostudy.git', branch: 'main', changelog: true, poll: false)
+                git(credentialsId: 'gitee-id', url: 'https://gitee.com/lizhenwei188/gotostudy.git', branch: 'master', changelog: true, poll: false)
                 container ('maven') {
                   sh "mvn clean install -Dmaven.test.skip=true -gs `pwd`/settings.xml"
                 }
@@ -42,7 +42,7 @@ pipeline {
                 container ('maven') {
                   withCredentials([string(credentialsId: "$SONAR_CREDENTIAL_ID", variable: 'SONAR_TOKEN')]) {
                     withSonarQubeEnv('sonar') {
-                     sh "mvn sonar:sonar  -gs `pwd`/settings.xml -Dsonar.branch.name=$BRANCH_NAME -Dsonar.login=$SONAR_TOKEN"
+                     sh "mvn sonar:sonar  -gs `pwd`/settings.xml -Dsonar.login=$SONAR_TOKEN"
                     }
                   }
                   timeout(time: 1, unit: 'HOURS') {
@@ -68,7 +68,7 @@ pipeline {
 
             stage('部署项目到k8s集群中') {
               when{
-                branch 'main'
+                branch 'master'
               }
               steps {
                 input(id: "deployment-$PROJECT_NAME", message: "是否将 $PROJECT_NAME 部署到集群中?")
