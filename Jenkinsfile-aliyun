@@ -52,7 +52,7 @@ pipeline {
               }
             }
 
-            stage ("构建 $PROJECT_NAME 项目推送镜像到dockerhub") {
+            stage ("构建 $PROJECT_NAME-$PROJECT_VERSION 项目推送镜像到dockerhub") {
               steps {
                 container ('maven') {
                   sh 'mvn  -Dmaven.test.skip=true -gs `pwd`/settings.xml clean package'
@@ -66,12 +66,12 @@ pipeline {
               }
             }
 
-            stage("部署 $PROJECT_NAME 项目到k8s集群中") {
+            stage("部署 $PROJECT_NAME-$PROJECT_VERSION 项目到k8s集群中") {
               when{
                 branch 'master'
               }
               steps {
-                input(id: "deployment-$PROJECT_NAME", message: "是否将 $PROJECT_NAME 部署到集群中?")
+                input(id: "deployment-$PROJECT_NAME-$PROJECT_VERSION", message: "是否将 $PROJECT_NAME-$PROJECT_VERSION 部署到集群中?")
                 kubernetesDeploy(configs: "$PROJECT_NAME/deployment/**", enableConfigSubstitution: true, kubeconfigId: "$KUBECONFIG_CREDENTIAL_ID")
               }
             }
@@ -84,7 +84,7 @@ pipeline {
               }
               steps {
                 container ('maven') {
-                  input(id: "publish-$PROJECT_VERSION", message: '是否发布当前镜像版本?')
+                  input(id: "publish-$PROJECT_NAME-$PROJECT_VERSION", message: '是否发布 $PROJECT_NAME-$PROJECT_VERSION 镜像版本?')
                     withCredentials([usernamePassword(credentialsId: "$GITEE_CREDENTIAL_ID", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                       sh 'git config --global user.email "lizhenwei188@foxmail.com" '
                       sh 'git config --global user.name "lizhenwei" '
