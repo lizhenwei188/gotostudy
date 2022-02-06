@@ -41,3 +41,11 @@ mybatis-plus:
 feign:
   hystrix:
     enabled: true
+
+# 微信登录信息
+wx:
+  open:
+    appId: wxed9954c01bb89b47
+    appSecret: a7482517235173ddb4083788de60b90e
+    #    http://guli.shop/api/ucenter/wx/callback
+    redirectUrl: http://localhost:8160/api/ucenter/wx/callback
