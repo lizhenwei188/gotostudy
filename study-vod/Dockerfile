@@ -1,5 +1,5 @@
 FROM java:8
-EXPOSE 8080
+EXPOSE 8160
 
 VOLUME /temp
 ADD target/*.jar /study-vod.jar
