@@ -52,7 +52,7 @@ pipeline {
               }
             }
 
-            stage ('构建项目推送镜像到dockerhub') {
+            stage ('构建 $PROJECT_NAME 项目推送镜像到dockerhub') {
               steps {
                 container ('maven') {
                   sh 'mvn  -Dmaven.test.skip=true -gs `pwd`/settings.xml clean package'
@@ -66,7 +66,7 @@ pipeline {
               }
             }
 
-            stage('部署项目到k8s集群中') {
+            stage('部署 $PROJECT_NAME 项目到k8s集群中') {
               when{
                 branch 'master'
               }
