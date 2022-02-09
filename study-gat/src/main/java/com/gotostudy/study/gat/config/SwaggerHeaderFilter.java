@@ -1,6 +1,7 @@
 package com.gotostudy.study.gat.config;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -30,6 +31,9 @@ public class SwaggerHeaderFilter extends AbstractGatewayFilterFactory {
 //                String basePath = path.substring(0, path.lastIndexOf(URI));
                 ServerHttpRequest newRequest = request.mutate().header(HEADER_NAME, basePath).build();
                 ServerWebExchange newExchange = exchange.mutate().request(newRequest).build();
+
+
+
                 return chain.filter(newExchange);
             } else {
                 ServerHttpRequest newRequest = request.mutate().path(basePath + request.getPath()).build();

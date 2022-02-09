@@ -2,6 +2,7 @@
 package com.gotostudy.study.edu.config;
 
 import com.github.xiaoymin.knife4j.core.util.CollectionUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
