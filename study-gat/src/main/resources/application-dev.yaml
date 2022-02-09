@@ -14,6 +14,7 @@ spring:
       discovery:
         locator:
           enabled: true
+          lowerCaseServiceId: true
 
 
       routes:
@@ -21,33 +22,57 @@ spring:
           uri: lb://study-cms
           predicates:
             - Path=/cms/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
         - id: study-edu
           uri: lb://study-edu
           predicates:
             - Path=/edu/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
         - id: study-msm
           uri: lb://study-msm
           predicates:
             - Path=/msm/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
         - id: study-ord
           uri: lb://study-ord
           predicates:
             - Path=/ord/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
         - id: study-oss
           uri: lb://study-oss
           predicates:
             - Path=/oss/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
         - id: study-sta
           uri: lb://study-sta
           predicates:
             - Path=/sta/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
         - id: study-usr
           uri: lb://study-usr
           predicates:
             - Path=/usr/**,/api/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
         - id: study-vod
           uri: lb://study-vod
           predicates:
             - Path=/vod/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
 
 

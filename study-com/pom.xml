@@ -19,10 +19,9 @@
         <java.version>1.8</java.version>
         <jwt.version>0.7.0</jwt.version>
         <mysql.version>8.0.17</mysql.version>
-        <swagger.version>2.9.2</swagger.version>
+        <knife4j.version>3.0.2</knife4j.version>
         <httpcore.version>4.4.14</httpcore.version>
         <easyexcel.version>2.2.6</easyexcel.version>
-        <swagger-ui.version>2.9.2</swagger-ui.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
         <commons-pool2.version>2.6.0</commons-pool2.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
@@ -65,16 +64,16 @@
             <version>${commons-pool2.version}</version>
         </dependency>
 
-        <!--swagger-->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger-ui.version}</version>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
         </dependency>
 
         <!--        mybatis-plus 和 boot整合的依赖-->

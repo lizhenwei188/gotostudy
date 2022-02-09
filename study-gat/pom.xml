@@ -38,11 +38,29 @@
             </exclusions>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.github.xiaoymin</groupId>-->
+<!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--            <version>3.0.2</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--            <version>2.1.0.RELEASE</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
             <version>${spring-cloud-starter-gateway.version}</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
+<!--            <version>2.2.1.RELEASE</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

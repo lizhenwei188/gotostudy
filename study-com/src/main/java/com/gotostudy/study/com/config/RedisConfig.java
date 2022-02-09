@@ -1,4 +1,4 @@
-package com.gotostudy.study.com.utils.config;
+package com.gotostudy.study.com.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
