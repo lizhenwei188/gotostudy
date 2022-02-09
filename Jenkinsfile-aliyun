@@ -69,7 +69,6 @@ pipeline {
               }
               steps {
                 container ('maven') {
-                  input(id: "publish-$PROJECT_NAME-$PROJECT_VERSION", message: '是否发布 $PROJECT_NAME-$PROJECT_VERSION 镜像版本?')
                     withCredentials([usernamePassword(credentialsId: "$GITEE_CREDENTIAL_ID", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                       sh 'git config --global user.email "lizhenwei188@foxmail.com" '
                       sh 'git config --global user.name "lizhenwei" '
