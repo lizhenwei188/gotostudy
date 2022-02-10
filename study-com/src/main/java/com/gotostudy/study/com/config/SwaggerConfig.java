@@ -1,5 +1,5 @@
 
-package com.gotostudy.study.ord.config;
+package com.gotostudy.study.com.config;
 
 import com.github.xiaoymin.knife4j.core.util.CollectionUtils;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +9,6 @@ import org.springframework.core.annotation.Order;
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
@@ -22,7 +21,7 @@ import java.util.List;
 @Configuration
 @EnableSwagger2WebMvc
 @Import(BeanValidatorPluginsConfiguration.class)
-public class SwaggerConfiguration {
+public class SwaggerConfig {
 
     @Bean(value = "orderApi")
     @Order(value = 1)
@@ -30,7 +29,7 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(groupApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.gotostudy.study.ord.controller"))
+//                .apis(RequestHandlerSelectors.basePackage("com.gotostudy.study.edu.controller"))
                 .paths(PathSelectors.any())
 
                 .build().securityContexts(CollectionUtils.newArrayList(securityContext(),securityContext1())).securitySchemes(CollectionUtils.<SecurityScheme>newArrayList(apiKey(),apiKey1()));

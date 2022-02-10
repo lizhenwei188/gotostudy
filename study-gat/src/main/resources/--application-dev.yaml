@@ -1,5 +1,5 @@
 server:
-  port: 8160
+  port: 8003
 
 spring:
   application:
@@ -8,7 +8,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: nacos.gotostudy:8848
+        server-addr: 192.168.158.130:31414
+        namespace: 42b17086-f346-41a5-8e00-a4001721b882
 
     gateway:
       discovery:
@@ -23,59 +24,56 @@ spring:
           predicates:
             - Path=/cms/**
           filters:
-            - SwaggerHeaderFilter
+            #            - SwaggerHeaderFilter
             - StripPrefix=1
         - id: study-edu
           uri: lb://study-edu
           predicates:
             - Path=/edu/**
           filters:
-            - SwaggerHeaderFilter
+            #            - SwaggerHeaderFilter
             - StripPrefix=1
         - id: study-msm
           uri: lb://study-msm
           predicates:
             - Path=/msm/**
           filters:
-            - SwaggerHeaderFilter
+            #            - SwaggerHeaderFilter
             - StripPrefix=1
         - id: study-ord
           uri: lb://study-ord
           predicates:
             - Path=/ord/**
           filters:
-            - SwaggerHeaderFilter
+            #            - SwaggerHeaderFilter
             - StripPrefix=1
         - id: study-oss
           uri: lb://study-oss
           predicates:
             - Path=/oss/**
           filters:
-            - SwaggerHeaderFilter
+            #            - SwaggerHeaderFilter
             - StripPrefix=1
         - id: study-sta
           uri: lb://study-sta
           predicates:
             - Path=/sta/**
           filters:
-            - SwaggerHeaderFilter
+            #            - SwaggerHeaderFilter
             - StripPrefix=1
         - id: study-usr
           uri: lb://study-usr
           predicates:
             - Path=/usr/**,/api/**
           filters:
-            - SwaggerHeaderFilter
+            #            - SwaggerHeaderFilter
             - StripPrefix=1
         - id: study-vod
           uri: lb://study-vod
           predicates:
             - Path=/vod/**
           filters:
-            - SwaggerHeaderFilter
+            #            - SwaggerHeaderFilter
             - StripPrefix=1
-
-
-
 
 

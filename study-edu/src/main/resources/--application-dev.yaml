@@ -1,10 +1,9 @@
 server:
-  port: 8160
+  port: 8002
 
 spring:
   application:
-    name: study-usr
-
+    name: study-edu
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -16,6 +15,7 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.158.130:31414
+        namespace: 42b17086-f346-41a5-8e00-a4001721b882
 
   redis:
     host: 192.168.158.130
@@ -23,17 +23,23 @@ spring:
     database: 0
     timeout: 1800000
 
+#    返回时间的格式 如果不加则为这种形式 2019-10-30T06:18:46.000+0000
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
 logging:
   config: classpath:logback-spring.xml
 
 mybatis-plus:
+#  sql语句执行打印
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath*:mapper/*.xml
 
   global-config:
     db-config:
-      logic-delete-field: isDeleted # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-field: isDeleted # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略@Logtable)
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
@@ -42,10 +48,13 @@ feign:
   hystrix:
     enabled: true
 
-# 微信登录信息
-wx:
-  open:
-    appId: wxed9954c01bb89b47
-    appSecret: a7482517235173ddb4083788de60b90e
-#    http://guli.shop/api/ucenter/wx/callback
-    redirectUrl: http://localhost:8160/api/ucenter/wx/callback
+# 设置hystrix超时时间，默认1000ms
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+

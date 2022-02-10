@@ -1,5 +1,5 @@
 server:
-  port: 8003
+  port: 8160
 
 spring:
   application:
@@ -8,7 +8,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.158.130:31414
+        server-addr: nacos.gotostudy:8848
+        namespace: 024e2560-816b-4f7c-9814-2dae1257b213
 
     gateway:
       discovery:
@@ -74,5 +75,8 @@ spring:
           filters:
             - SwaggerHeaderFilter
             - StripPrefix=1
+
+
+
 
 

@@ -1,25 +1,19 @@
 server:
-  port: 8004
+  port: 8160
 
 spring:
   application:
     name: study-msm
 
-
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/gotostudy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
-    username: root
-    password: root
-
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.158.130:31414
+        server-addr: nacos.gotostudy:8848
+        namespace: 024e2560-816b-4f7c-9814-2dae1257b213
 
   redis:
-    host: 192.168.158.130
-    port: 32200
+    host: redis.gotostudy
+    port: 6379
     database: 0
     timeout: 1800000
 
@@ -36,10 +30,6 @@ spring:
 logging:
   config: classpath:logback-spring.xml
 
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath*:mapper/*.xml
 
   global-config:
     db-config:

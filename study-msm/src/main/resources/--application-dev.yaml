@@ -1,9 +1,10 @@
 server:
-  port: 8002
+  port: 8004
 
 spring:
   application:
-    name: study-edu
+    name: study-msm
+
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,6 +16,7 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.158.130:31414
+        namespace: 42b17086-f346-41a5-8e00-a4001721b882
 
   redis:
     host: 192.168.158.130
@@ -22,23 +24,27 @@ spring:
     database: 0
     timeout: 1800000
 
-#    返回时间的格式 如果不加则为这种形式 2019-10-30T06:18:46.000+0000
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
+  mail:
+    host: smtp.qq.com
+    username: lizhenwei188@foxmail.com
+    password: filbwtojvljsdhgc
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enabled: true
 
 logging:
   config: classpath:logback-spring.xml
 
 mybatis-plus:
-#  sql语句执行打印
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath*:mapper/*.xml
 
   global-config:
     db-config:
-      logic-delete-field: isDeleted # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略@Logtable)
+      logic-delete-field: isDeleted # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
@@ -47,13 +53,11 @@ feign:
   hystrix:
     enabled: true
 
-# 设置hystrix超时时间，默认1000ms
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
+tencent:
+  appId: 1400498828
+  appKey: 486ef0e8da9d07cf56ae345c4405de48
+  templateId: 903043
+  signName: weAreStudy
 
-
+  secretId: AKID9C4WrUreU0RhKn4IGUPAh5v2BZ3dEJXM
+  secretKey: 61ljT5eTIyTE2g5VdhdQ495uZ1GH2Yxj

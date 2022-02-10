@@ -1,29 +1,32 @@
 server:
-  port: 8160
+  port: 8006
 
 spring:
   application:
-    name: study-vod
+    name: study-oss
 
   cloud:
     nacos:
       discovery:
-        server-addr: nacos.gotostudy:8848
+        server-addr: 192.168.158.130:31414
+        namespace: 42b17086-f346-41a5-8e00-a4001721b882
 
   servlet:
     multipart:
-      max-file-size: 10240MB
-      max-request-size: 10240MB
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 
 logging:
   config: classpath:logback-spring.xml
 
 aliyun:
-  vod:
+  oss:
     file:
+      endpoint: oss-cn-hangzhou.aliyuncs.com
       keyid: LTAI5tA3AgDkUfGSu1f6B67e
       keysecret: ArUuw0uSM6ZRhY6kTpktHBuZYa0zEA
+      bucketname: gotostudy
 
 #开启熔断机制
 feign:

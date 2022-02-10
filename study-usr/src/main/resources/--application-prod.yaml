@@ -16,6 +16,7 @@ spring:
     nacos:
       discovery:
         server-addr: nacos.gotostudy:8848
+        namespace: 024e2560-816b-4f7c-9814-2dae1257b213
 
   redis:
     host: redis.gotostudy
