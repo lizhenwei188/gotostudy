@@ -5,8 +5,8 @@ import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import ${mainPath}.common.utils.PageUtils;
-import ${mainPath}.common.utils.Query;
+import ${mainPath}.com.utils.mybatisplus.PageUtils;
+import ${mainPath}.com.utils.mybatisplus.Query;
 
 import ${package}.${moduleName}.dao.${className}Dao;
 import ${package}.${moduleName}.entity.${className}Entity;
@@ -17,10 +17,18 @@ import ${package}.${moduleName}.service.${className}Service;
 public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${className}Entity> implements ${className}Service {
 
     @Override
-    public PageUtils queryPage(Map<String, Object> params) {
-        IPage<${className}Entity> page = this.page(
-                new Query<${className}Entity>().getPage(params),
-                new QueryWrapper<${className}Entity>()
+    public PageUtils queryPage(Map<String, Object> params, ${className}Entity ${className}Entity) {
+
+        QueryWrapper<CourseEntity> wrapper = new QueryWrapper<>();
+
+        if (${className}Entity != null) {
+            System.out.println("这里是判断的条件");
+        }
+
+
+        IPage<CourseEntity> page = this.page(
+                new Query<CourseEntity>().getPage(params),
+                wrapper
         );
 
         return new PageUtils(page);

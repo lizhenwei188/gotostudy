@@ -1,12 +1,15 @@
 package com.gotostudy.study.edu.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gotostudy.study.com.utils.mybatisplus.PageUtils;
 import com.gotostudy.study.com.utils.mybatisplus.Query;
 import com.gotostudy.study.com.utils.resultutil.GotostudyException;
 import com.gotostudy.study.com.utils.resultutil.R;
+import com.gotostudy.study.edu.dao.CourseDao;
 import com.gotostudy.study.edu.entity.CourseDescriptionEntity;
-import com.gotostudy.study.edu.entity.SubjectEntity;
-import com.gotostudy.study.edu.entity.TeacherEntity;
+import com.gotostudy.study.edu.entity.CourseEntity;
 import com.gotostudy.study.edu.service.*;
 import com.gotostudy.study.edu.vo.CourseInfoVo;
 import com.gotostudy.study.edu.vo.CoursePublishVo;
@@ -15,18 +18,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
-
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
-import com.gotostudy.study.edu.dao.CourseDao;
-import com.gotostudy.study.edu.entity.CourseEntity;
-import org.springframework.util.StringUtils;
 
 
 @Service("courseService")
