@@ -9,16 +9,17 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-#if(${hasBigDecimal})
-import java.math.BigDecimal;
-#end
+    #if(${hasBigDecimal})
+    import java.math.BigDecimal;
+    #end
 import java.io.Serializable;
 import java.util.Date;
+
 import lombok.Data;
 
 /**
  * ${comments}
- * 
+ *
  * @author ${author}
  * @email ${email}
  * @date ${datetime}
@@ -27,25 +28,23 @@ import lombok.Data;
 @Builder
 @TableName("${tableName}")
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="${tableName}", description="${comments}")
+@ApiModel(value = "${tableName}", description = "${comments}")
 public class ${className}Entity implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-#foreach ($column in $columns)
-	/**
-	 * $column.comments
-	 */
-	#if($column.columnName == $pk.columnName)
+    #foreach ($column in $columns)
+
+        #if($column.columnName == $pk.columnName)
 @TableId
-	#end
-	#if($column.columnName == "create_time")
+        #end
+        #if($column.columnName == "create_time")
 @TableField(fill = FieldFill.INSERT)
-	#end
-	#if($column.columnName == "update_time")
+        #end
+        #if($column.columnName == "update_time")
 @TableField(fill = FieldFill.INSERT_UPDATE)
-	#end
+        #end
 @ApiModelProperty(value = "${column.comments}")
-private $column.attrType $column.attrname;
-#end
+    private $column.attrType $column.attrname;
+    #end
 
 }

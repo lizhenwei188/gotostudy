@@ -1,6 +1,8 @@
 spring:
   application:
     name: study-gat
+#  profiles:
+#    active: prod
 
 
   cloud:
