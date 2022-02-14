@@ -46,6 +46,13 @@ public class TeacherController {
         return R.ok().data(map);
     }
 
+    @GetMapping("/info/all")
+    public R allInfo(){
+        List<TeacherEntity> teacherList = teacherService.list();
+
+        return R.ok().data("teacherList", teacherList);
+    }
+
 
     /**
      * 信息

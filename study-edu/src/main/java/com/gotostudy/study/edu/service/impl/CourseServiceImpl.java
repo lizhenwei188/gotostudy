@@ -48,12 +48,6 @@ public class CourseServiceImpl extends ServiceImpl<CourseDao, CourseEntity> impl
     private ChapterService chapterService;
 
     @Autowired
-    private SubjectService  subjectService;
-
-    @Autowired
-    private TeacherService  teacherService;
-
-    @Autowired
     private CourseDescriptionService courseDescriptionService;
 
     @Override
